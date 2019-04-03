@@ -65,14 +65,19 @@ class ShowModal extends Component {
             />
           </div>
           <div className="buttons mt-3 text-center">
-            <button className="btn btn-success" type="submit">
-              رزرو
+            <input
+              type="submit"
+              className="btn btn-success btn-block mt-4"
+              value="رزرو"
+            />
+            <button
+              className="btn btn-danger btn-block mt-2"
+              onClick={this.props.closeModal}
+            >
+              انصراف
             </button>
           </div>
         </form>
-        <button className="btn btn-danger mt-2" onClick={this.props.closeModal}>
-          انصراف
-        </button>
       </Modal>
     );
   }

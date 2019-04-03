@@ -41,27 +41,27 @@ class Navbar extends Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#services">
+              <a className="nav-link" href="/#services">
                 خدمات
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#prices">
+              <a className="nav-link" href="/#prices">
                 تعرفه ها
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#articles">
+              <a className="nav-link" href="/#articles">
                 مقالات
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#working-days">
+              <a className="nav-link" href="/#working-days">
                 روزهای کاری
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="َabout-us">
+              <a className="nav-link" href="َ/about-us">
                 درباره ما
               </a>
             </li>

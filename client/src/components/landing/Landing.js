@@ -14,7 +14,8 @@ class Landing extends Component {
   openModal = () => {
     this.setState({ modalIsOpen: true });
   };
-  closeModal = () => {
+  closeModal = e => {
+    e.preventDefault();
     this.setState({ modalIsOpen: false });
   };
   render() {

@@ -9,7 +9,6 @@ class DatePickerComponent extends Component {
         style={{ height: "40px" }}
         className="form-control"
         calendarStyles={styles}
-        placeholder="تاریخ"
       />
     );
   }

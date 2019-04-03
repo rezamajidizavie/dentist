@@ -1,0 +1,9 @@
+.reserve-input {
+  border-radius: 0 0 10px 10px;
+}
+
+.reserve-input-label {
+  border-radius: 10px 10px 0px 0px;
+  justify-content: "center";
+  width: "100%"
+}
