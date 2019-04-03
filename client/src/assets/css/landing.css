@@ -1,0 +1,64 @@
+.landing {
+  background-image: url("../../assets/img/landing.jpg");
+  height: 600px;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-area {
+  margin-top: 300px;
+  position: relative;
+  height: 300px;
+}
+
+.landing-area-overlay {
+  background-color: rgba(100, 100, 200, 0.5);
+  height: 100%;
+  padding-top: 20px;
+}
+
+@media screen and (max-width:700px) {
+  .landing-area {
+    margin-top: 200px
+  }
+  .landing {
+    height: 500px
+  }
+  .landing-title {
+    font-size: 50px;
+    margin-top: 0!important
+  }
+  .landing-dsc {
+    font-size: 18px
+  }
+  .landing-main-header {
+    font-size: 40px
+  }
+}
+
+.price-table-header {
+  width: 30%
+}
+
+.article-card:hover {
+  box-shadow: 2px 2px 9px -1px rgba(0, 0, 0, 0.75);
+}
+
+tr:hover {
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.75);
+}
+
+.service-card:hover {
+  box-shadow: 2px 2px 9px -1px rgba(0, 0, 0, 0.75);
+}
