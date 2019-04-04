@@ -29,8 +29,7 @@ class ShowModal extends Component {
                   style={{
                     justifyContent: "center",
                     width: "100%",
-                    borderRadius: "10px 10px 0px 0px",
-                    backgroundColor: "lightblue"
+                    borderRadius: "10px 10px 0px 0px"
                   }}
                 >
                   تاریخ
@@ -50,8 +49,7 @@ class ShowModal extends Component {
                   style={{
                     justifyContent: "center",
                     width: "100%",
-                    borderRadius: "10px 10px 0px 0px",
-                    backgroundColor: "lightblue"
+                    borderRadius: "10px 10px 0px 0px"
                   }}
                 >
                   نام
@@ -74,8 +72,7 @@ class ShowModal extends Component {
                   style={{
                     justifyContent: "center",
                     width: "100%",
-                    borderRadius: "10px 10px 0px 0px",
-                    backgroundColor: "lightblue"
+                    borderRadius: "10px 10px 0px 0px"
                   }}
                 >
                   شماره تماس
