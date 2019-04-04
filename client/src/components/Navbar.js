@@ -1,24 +1,26 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import tooth from "../assets/img/tooth.png";
-
+import "../assets/css/navbar.css";
 class Navbar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-expand-lg navbar-light"
+        className="navbar navbar-expand-lg navbar-light main-navbar"
         style={{
-          backgroundColor: "rgba(240,240,240)",
-          opacity: 0.9
+          backgroundColor: "#eee",
+          boxShadow: "0px 0px 15px -10px rgba(71,62,71,1)",
+          borderBottom: "1px solid lightgray"
         }}
       >
-        <img
-          src={tooth}
-          className="tooth-logo rounded-circle"
-          alt="tooth-logo"
-        />
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/" style={{ padding: 0 }}>
+          <img
+            src={tooth}
+            className="tooth-logo rounded-circle"
+            alt="tooth-logo"
+          />
           دندانک
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -36,9 +38,9 @@ class Navbar extends Component {
           <ul className="navbar-nav mr-auto" />
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="/reserve">
+              <Link className="nav-link" to="/reserve">
                 رزرو نوبت
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/#services">

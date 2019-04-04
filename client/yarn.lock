@@ -4845,7 +4845,7 @@ inquirer@6.2.1:
     strip-ansi "^5.0.0"
     through "^2.3.6"
 
-inquirer@^6.1.0:
+inquirer@^6.1.0, inquirer@^6.2.2:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.2.2.tgz#46941176f65c9eb20804627149b743a218f25406"
   integrity sha512-Z2rREiXA6cHRR9KBOarR3WuLlFzlIfAEIiB45ll5SSadMg7WqOh1MKEjjndfuH5ewXdixWCxqnVfGOQzPeiztA==
@@ -5352,6 +5352,15 @@ jalaali-js@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/jalaali-js/-/jalaali-js-0.2.0.tgz#1096b3c720fc74e3dd2adf7a6fc01ea4fbb4ba1c"
   integrity sha1-EJazxyD8dOPdKt96b8AepPu0uhw=
+
+jalali-moment@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jalali-moment/-/jalali-moment-3.3.1.tgz#28d6b61d892bad2d8982512278346fa44bccdd22"
+  integrity sha512-PHX80LqSBrOraUDceojyLVgZ54blcvPr4pSGaVChe7iCfatZuFMMym+xQ3k4mbcbaXhLvKAlnSds9LsdRWZOaw==
+  dependencies:
+    commander "^2.19.0"
+    inquirer "^6.2.2"
+    moment "^2.23.0"
 
 jest-changed-files@^23.4.2:
   version "23.4.2"
@@ -6411,7 +6420,7 @@ moment-jalali@^0.3.9:
     jalaali-js "^0.2.0"
     moment "^2.9.0"
 
-moment@^2.24.0, moment@^2.9.0:
+moment@^2.23.0, moment@^2.24.0, moment@^2.9.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
@@ -8217,6 +8226,11 @@ react-modal@^3.8.1:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
+
+react-moment@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.8.4.tgz#18eb59e1541c8b216353e23c21e9db50e42e2edb"
+  integrity sha512-QhI19OcfhiAn60/O6bMR0w8ApXrPFCjv6+eV0I/P9/AswzjgEAx4L7VxMBCpS/jrythLa12Q9v88req+ys4YpA==
 
 react-onclickoutside@^5.3.3:
   version "5.11.1"

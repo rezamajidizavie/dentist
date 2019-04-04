@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { DatePicker } from "react-persian-datepicker";
+import DatePicker from "./react-persian-datepicker/src/components/DatePicker";
 import "../../assets/css/calender.css";
 
 class DatePickerComponent extends Component {
@@ -7,7 +7,7 @@ class DatePickerComponent extends Component {
     return (
       <DatePicker
         style={{ height: "40px" }}
-        className="form-control"
+        className="form-control text-center"
         calendarStyles={styles}
       />
     );
