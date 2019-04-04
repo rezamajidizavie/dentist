@@ -12,7 +12,7 @@ class WorkingDays extends Component {
           روزهای کاری
         </div>
         <p>
-          شنبه تا پنجشنبه همه روزه از ساعت 8 صبح تا 19 شب آماده خدمت رسانی به
+          شنبه تا پنجشنبه همه روزه از ساعت ۸ صبح تا ۱۲ شب آماده خدمت رسانی به
           هموطنان عزیز هستیم
         </p>
         <div>
@@ -23,7 +23,7 @@ class WorkingDays extends Component {
         </div>
         <div className="mt-3">
           <span className="badge badge-secondary">شماره تماس</span>
-          <span className="ml-2">04533620548</span>
+          <span className="ml-2">045-33620548</span>
         </div>
         <div className="mt-3">
           <span className="badge badge-secondary">ایمیل</span>
