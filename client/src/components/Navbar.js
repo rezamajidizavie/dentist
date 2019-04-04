@@ -37,34 +37,49 @@ class Navbar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto" />
           <ul className="navbar-nav">
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >
               <Link className="nav-link" to="/reserve">
                 رزرو نوبت
               </Link>
             </li>
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >
               <a className="nav-link" href="/#services">
                 خدمات
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >
               <a className="nav-link" href="/#prices">
                 تعرفه ها
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >
               <a className="nav-link" href="/#articles">
                 مقالات
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >
               <a className="nav-link" href="/#working-days">
                 روزهای کاری
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="َ/about-us">
-                درباره ما
               </a>
             </li>
           </ul>
