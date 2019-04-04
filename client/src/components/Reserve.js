@@ -19,10 +19,6 @@ class Reserve extends Component {
           </p>
           <small>* نام، شماره تماس و تاریخ ویزیت را وارد نمایید</small>
 
-          <Moment locale="fa" format="YYYY/MM/DD">
-            {persianDate}
-          </Moment>
-
           <div className="col-md-8 m-auto">
             <form>
               <div className="form-group">
