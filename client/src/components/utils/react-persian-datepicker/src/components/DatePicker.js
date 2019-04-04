@@ -144,6 +144,8 @@ export default class DatePicker extends Component {
           onClick={this.handleInputClick.bind(this)}
           value={inputValue}
           readOnly="true"
+          placeholder="برای انتخاب تاریخ کلیک یا لمس کنید"
+          style={{ backgroundColor: "white" }}
         />
       </div>
     );
