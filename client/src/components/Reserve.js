@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import "../assets/css/calender.css";
 import "../assets/css/reserve.css";
 import DatePickerComponent from "./utils/DatePickerComponent";
-import Moment from "react-moment";
 import * as moment from "jalali-moment";
 
 class Reserve extends Component {
   render() {
-    let persianDate = moment()
-      .locale("fa")
-      .format("YYYY/M/D");
+    moment.locale("fa");
+
     return (
       <div className="container text-center">
         <div className="col-md-6 m-auto reserve-container">
