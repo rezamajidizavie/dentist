@@ -64,7 +64,6 @@ class Reserve extends Component {
                   </div>
                   <div style={{ width: "100%" }}>
                     <input
-                      data-disable-touch-keyboard
                       type="text"
                       className="form-control form-control-md reserve-input"
                     />

@@ -143,6 +143,7 @@ export default class DatePicker extends Component {
           onChange={this.handleInputChange.bind(this)}
           onClick={this.handleInputClick.bind(this)}
           value={inputValue}
+          readOnly="true"
         />
       </div>
     );
