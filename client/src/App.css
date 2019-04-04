@@ -1,11 +1,11 @@
 body {
   direction: rtl;
-  font-family: Yekan
+  font-family: iransans
 }
 
 @font-face {
-  font-family: Yekan;
-  src: url(./assets/fonts/woff/Yekan.woff);
+  font-family: iransans;
+  src: url(./assets/fonts/ttf/IRANSans\(FaNum\).ttf);
 }
 
 * {
