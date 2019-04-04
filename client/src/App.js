@@ -5,8 +5,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Reserve from "./components/Reserve";
+import * as moment from "jalali-moment";
 
 class App extends Component {
+  componentDidMount() {
+    moment.locale("fa");
+  }
+
   render() {
     return (
       <Router>

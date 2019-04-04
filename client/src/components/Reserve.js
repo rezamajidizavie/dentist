@@ -6,8 +6,6 @@ import * as moment from "jalali-moment";
 
 class Reserve extends Component {
   render() {
-    moment.locale("fa");
-
     return (
       <div className="container text-center">
         <div className="col-md-6 m-auto reserve-container">
