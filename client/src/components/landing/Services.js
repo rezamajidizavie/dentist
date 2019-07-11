@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import cardImageOne from "../../assets/img/landing.jpg";
 import cardImageTwo from "../../assets/img/dentist.jpg";
 import cardImageThree from "../../assets/img/child.jpg";
@@ -10,7 +10,7 @@ class Services extends Component {
         <div
           className="lead alert alert-success mt-5"
           id="services"
-          style={{ backgroundColor: "#e9e2ec" }}
+          style={{backgroundColor: "rgb(52,58,64)", color: "white"}}
         >
           خدمات
         </div>
@@ -21,7 +21,7 @@ class Services extends Component {
                 <img
                   src={cardImageOne}
                   alt="card"
-                  style={{ width: "100%", height: "220px" }}
+                  style={{width: "100%", height: "220px"}}
                 />
               </div>
               <div className="card-body">
@@ -35,7 +35,7 @@ class Services extends Component {
                 <img
                   src={cardImageTwo}
                   alt="card"
-                  style={{ width: "100%", height: "220px" }}
+                  style={{width: "100%", height: "220px"}}
                 />
               </div>
               <div className="card-body">
@@ -49,7 +49,7 @@ class Services extends Component {
                 <img
                   src={cardImageThree}
                   alt="card"
-                  style={{ width: "100%", height: "220px" }}
+                  style={{width: "100%", height: "220px"}}
                 />
               </div>
               <div className="card-body">

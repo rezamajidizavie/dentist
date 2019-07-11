@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class Prices extends Component {
   render() {
@@ -7,7 +7,7 @@ class Prices extends Component {
         <div
           className="lead alert alert-success mt-5"
           id="prices"
-          style={{ backgroundColor: "#e9e2ec" }}
+          style={{backgroundColor: "rgb(52,58,64)", color: "white"}}
         >
           تعرفه ها
         </div>

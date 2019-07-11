@@ -22,8 +22,18 @@ class Navbar extends Component {
         style={{display: "flex", flexDirection: "row", alignItems: "center"}}
       >
         <li className="nav-item mr-2">
+          <Link style={{color: "white"}} className="nav-link" to="/dashboard">
+            داشبورد
+          </Link>
+        </li>
+        <li className="nav-item mr-2">
           <Link style={{color: "white"}} className="nav-link" to="/admin">
             تعیین ظرفیت ها
+          </Link>
+        </li>
+        <li className="nav-item mr-2">
+          <Link style={{color: "white"}} className="nav-link" to="/reservelist">
+            لیست رزرو ها
           </Link>
         </li>
         <li className="nav-item mr-2">
@@ -38,9 +48,22 @@ class Navbar extends Component {
       </ul>
     );
 
+    const guestLinks = (
+      <ul
+        className=" auth-links navbar-nav ml-auto"
+        style={{display: "flex", flexDirection: "row", alignItems: "center"}}
+      >
+        <li className="nav-item mr-3">
+          <Link style={{color: "white"}} className="nav-link" to="/login">
+            ورود
+          </Link>
+        </li>
+      </ul>
+    );
+
     return (
       <nav
-        className="navbar navbar-expand-lg navbar-light main-navbar"
+        className="navbar navbar-expand-custom bg-dark navbar-light main-navbar"
         style={{
           backgroundColor: "#eee",
           boxShadow: "0px 0px 15px -10px rgba(71,62,71,1)",
@@ -63,7 +86,6 @@ class Navbar extends Component {
             />
             دندانک
           </Link>
-          {isAuthenticated ? authLinks : null}
         </div>
 
         <button
@@ -78,7 +100,6 @@ class Navbar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto" />
           <ul className="navbar-nav">
             <li
               className="nav-item"
@@ -126,6 +147,7 @@ class Navbar extends Component {
               </a>
             </li>
           </ul>
+          {isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
     );

@@ -66,7 +66,7 @@ export default class Admin extends Component {
       );
     } else {
       return (
-        <div className="container border col-md-8 col-lg-6 mt-4 p-0 text-center">
+        <div className="container border col-md-8 col-lg-6 mt-4 p-0 text-center rounded">
           <form onSubmit={this.onTableSubmit}>
             <table className="table">
               <thead>

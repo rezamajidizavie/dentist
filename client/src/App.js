@@ -18,6 +18,8 @@ import {setCurrentUser, logoutUser} from "./actions/authActions";
 import {Provider} from "react-redux";
 import store from "./store";
 import Login from "./components/Login";
+import ReservesList from "./components/ReservesList";
+import Dashboard from "./components/Dashboard";
 
 // check for token
 if (localStorage.jwtToken) {
@@ -56,6 +58,14 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/admin" component={Admin} />
             </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/reservelist"
+                component={ReservesList}
+              />
+            </Switch>
+            <Route exact path="/dashboard" component={Dashboard} />
 
             <Footer />
           </div>

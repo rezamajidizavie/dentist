@@ -25,23 +25,24 @@ class Login extends Component {
       password: this.state.password
     };
     this.props.loginUser(userData);
-    this.props.history.push("/admin");
+    this.props.history.push("/dashboard");
   }
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/admin");
+      this.props.history.push("/dashboard");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/admin");
+      this.props.history.push("/dashboard");
     }
   }
 
   render() {
     return (
-      <div className="col-md-8 m-auto">
+      <div className="col-lg-3 col-md-6 col-sm-6 m-auto reserve-container-visible">
+        <h1 className="text-center mt-1">ورود</h1>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <div className="input-group input-group-sm mt-3">
@@ -55,7 +56,7 @@ class Login extends Component {
                     borderRadius: "10px 10px 0px 0px"
                   }}
                 >
-                  email
+                  ایمیل
                 </span>
               </div>
               <div style={{width: "100%"}}>
@@ -81,13 +82,13 @@ class Login extends Component {
                     borderRadius: "10px 10px 0px 0px"
                   }}
                 >
-                  password
+                  پسورد
                 </span>
               </div>
               <div style={{width: "100%"}}>
                 <input
                   required
-                  type="text"
+                  type="password"
                   name="password"
                   className="form-control form-control-md reserve-input"
                   onChange={this.onChange}
@@ -95,7 +96,11 @@ class Login extends Component {
               </div>
             </div>
           </div>
-          <input className="btn btn-success w-100" type="submit" value="ثبت" />
+          <input
+            className="btn btn-success w-100 mb-1"
+            type="submit"
+            value="ثبت"
+          />
         </form>
       </div>
     );

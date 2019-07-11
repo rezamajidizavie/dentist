@@ -1,0 +1,20 @@
+.list-wrapper {
+  background-color: lightgray;
+}
+
+@media screen and (max-width: 440px) {
+  .list-wrapper {
+    flex-direction: column;
+  }
+
+  .list-wrapper p {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 2px !important;
+  }
+
+  .list-wrapper button {
+    max-width: 100%;
+    text-align: center;
+  }
+}

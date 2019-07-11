@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #1976d2 !important;
+  /* background-color: #1976d2 !important; */
   margin-bottom: 0px !important;
   box-shadow: 2px 2px 5px -1px rgba(148, 118, 148, 1);
 }
@@ -19,5 +19,33 @@
 
   .navbar-brand-items {
     flex-direction: column;
+  }
+}
+
+.nav-link:hover {
+  transform: scale(1.02);
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+/* bootstrap navbar breakpoint changing */
+@media (min-width: 600px) {
+  .navbar-expand-custom {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .navbar-expand-custom .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand-custom .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .navbar-expand-custom .navbar-collapse {
+    display: flex !important;
+  }
+  .navbar-expand-custom .navbar-toggler {
+    display: none;
   }
 }

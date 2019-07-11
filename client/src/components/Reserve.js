@@ -21,20 +21,11 @@ class Reserve extends Component {
       active: undefined,
       serverResponse: {},
       fetched: false,
-      reserveClassName: "reserve-container"
+      reserveClassName: "reserve-container-visible"
     };
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        reserveClassName: "reserve-container-visible"
-      });
-    }, 500);
-
-    let month = moment()
-      .locale("fa")
-      .format("MM");
     for (let i = 0; i < 5; i++) {
       this.state.dates[i] =
         parseInt(

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class Articles extends Component {
   render() {
@@ -7,7 +7,7 @@ class Articles extends Component {
         <div
           className="lead alert alert-success  mt-5"
           id="articles"
-          style={{ backgroundColor: "#e9e2ec" }}
+          style={{backgroundColor: "rgb(52,58,64)", color: "white"}}
         >
           مقالات
         </div>
@@ -17,7 +17,7 @@ class Articles extends Component {
               <i className="fas fa-newspaper mr-2" />
               بهترین شیوه عصب کشی چیست؟
             </p>
-            <p style={{ textAlign: "justify" }}>
+            <p style={{textAlign: "justify"}}>
               کانال ریشه و حفره مغز دندان حفره‌هایی در ساختمان دندان هستند که
               به‌طور طبیعی بافت‌های عصبی و رگ‌های خونی و بافت‌های سلولی دیگری را
               در خود جای می‌دهند. در صورتی که پوسیدگی دندان در مراحل اولیه درمان
@@ -38,7 +38,7 @@ class Articles extends Component {
               <i className="fas fa-newspaper mr-2" />
               چرا دندان ها فاسد میشوند؟
             </p>
-            <p style={{ textAlign: "justify" }}>
+            <p style={{textAlign: "justify"}}>
               پوسیدگی به معنی نرم شدن مینای دندان است و باعث آسیب ساختاری دندان
               می شود، ناشی از اسیدهای ایجاد شده توسط پلاک باکتری هایی که در
               هنگام شکستن قند در دهان شما ایجاد می شوند.پوسیدگی دندان اگر این از

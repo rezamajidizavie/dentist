@@ -17,11 +17,28 @@ router.get("/test", (req, res) => {
   res.json({msg: "Fuck you sina"});
 });
 
-router.get("/all", (req, res) => {
-  Reserve.find().then(items => {
-    res.json(items);
-  });
-});
+router.get(
+  "/all",
+  passport.authenticate("jwt", {session: false}),
+  (req, res) => {
+    Reserve.find().then(items => {
+      res.json(items);
+    });
+  }
+);
+
+router.post(
+  "/delete",
+  passport.authenticate("jwt", {session: false}),
+  (req, res) => {
+    const {id} = req.body;
+    Reserve.findByIdAndRemove(id)
+      .then(doc => {
+        res.json(doc);
+      })
+      .catch(err => res.json(err));
+  }
+);
 
 router.post("/", (req, res) => {
   const {name, phone, date, dateIndex} = req.body;

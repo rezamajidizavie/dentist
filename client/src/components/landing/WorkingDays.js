@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class WorkingDays extends Component {
   render() {
@@ -7,7 +7,7 @@ class WorkingDays extends Component {
         <div
           className="lead alert alert-success mt-5"
           id="working-days"
-          style={{ backgroundColor: "#e9e2ec" }}
+          style={{backgroundColor: "rgb(52,58,64)", color: "white"}}
         >
           روزهای کاری
         </div>
@@ -18,8 +18,8 @@ class WorkingDays extends Component {
         <div>
           <span className="badge badge-secondary">آدرس</span>
           <span className="ml-2">
-                 اردبیل، میدان سرچشمه، کوچه طوی، روبروی پارکینگ طبقاتی طوی،
-            مجتمع پزشکی مرکزی طوی، طبقه دوم
+            اردبیل، میدان سرچشمه، کوچه طوی، روبروی پارکینگ طبقاتی طوی، مجتمع
+            پزشکی مرکزی طوی، طبقه دوم
           </span>
         </div>
         <div className="mt-3">
