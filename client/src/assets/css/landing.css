@@ -1,14 +1,15 @@
 .landing {
   background-image: url("../../assets/img/landing.jpg");
-  height: 600px;
+  height: 686px;
   background-repeat: no-repeat;
   position: relative;
   background-size: cover;
   background-position: center;
+  margin-top: -1px;
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
@@ -17,7 +18,7 @@
 }
 
 .landing-area {
-  margin-top: 300px;
+  margin-top: 386px;
   position: relative;
   height: 300px;
 }
@@ -28,27 +29,54 @@
   padding-top: 20px;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width: 900px) {
+  .landing-title {
+    font-size: 60px;
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .landing-title {
+    font-size: 55px;
+    margin-top: 0 !important;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 700px) {
   .landing-area {
-    margin-top: 200px
+    margin-top: 200px;
   }
   .landing {
-    height: 500px
+    height: 500px;
   }
   .landing-title {
-    font-size: 50px;
-    margin-top: 0!important
+    font-size: 35px;
+    margin-top: 0 !important;
   }
   .landing-dsc {
-    font-size: 18px
+    font-size: 18px;
   }
   .landing-main-header {
-    font-size: 40px
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .landing-title {
+    font-size: 40px;
+    margin-top: 0 !important;
+    margin-bottom: 5px;
+  }
+
+  .landing-dsc {
+    margin-bottom: 1px;
   }
 }
 
 .price-table-header {
-  width: 30%
+  width: 30%;
 }
 
 .article-card:hover {

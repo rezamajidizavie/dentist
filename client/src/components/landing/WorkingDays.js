@@ -18,17 +18,18 @@ class WorkingDays extends Component {
         <div>
           <span className="badge badge-secondary">آدرس</span>
           <span className="ml-2">
-            اردبیل، خیابان فلان، کوچه فلان، پلاک فلان
+                 اردبیل، میدان سرچشمه، کوچه طوی، روبروی پارکینگ طبقاتی طوی،
+            مجتمع پزشکی مرکزی طوی، طبقه دوم
           </span>
         </div>
         <div className="mt-3">
           <span className="badge badge-secondary">شماره تماس</span>
-          <span className="ml-2">045-33620548</span>
+          <span className="ml-2">09144500277-09144500288</span>
         </div>
-        <div className="mt-3">
+        {/* <div className="mt-3">
           <span className="badge badge-secondary">ایمیل</span>
           <span className="ml-2">doctor@doctor.com</span>
-        </div>
+        </div> */}
       </div>
     );
   }

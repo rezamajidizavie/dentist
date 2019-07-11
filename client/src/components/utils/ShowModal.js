@@ -1,9 +1,40 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-
-import DatePickerComponent from "./DatePickerComponent";
-
+import * as moment from "jalali-moment";
+import DatePicker from "../utils/react-persian-datepicker/src/components/DatePicker";
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 class ShowModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      date: null,
+      phone: ""
+    };
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const newReserve = {
+      name: this.state.name,
+      date: moment(this.state.date).format("YYYY/MM/DD"),
+      phone: this.state.phone
+    };
+    axios
+      .post("/api/reserve", newReserve)
+      .then(res => {
+        this.props.history.push("/success");
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      });
+  };
+
   render() {
     return (
       <Modal
@@ -14,12 +45,9 @@ class ShowModal extends Component {
       >
         <div className="container text-center">
           <p className="display-4">رزرو نوبت</p>
-          <p className="small">
-            لطفا نام خود را وارد کرده و با کلیک بر روی ورودی تاریخ، تاریخ مورد
-            نظر را نیز انتخاب کنید
-          </p>
+          <p className="small">لطفا تاریخ، نام و شماره تماس را وارد نمایید</p>
         </div>
-        <form className="form">
+        <form className="form" onSubmit={this.onSubmit}>
           <div className="form-group">
             <div className="input-group input-group-sm">
               <div className="input-group-prepend" style={{ width: "100%" }}>
@@ -36,7 +64,14 @@ class ShowModal extends Component {
                 </span>
               </div>
               <div style={{ width: "100%" }}>
-                <DatePickerComponent />
+                <DatePicker
+                  style={{ height: "40px" }}
+                  className="form-control text-center"
+                  onChange={date => this.setState({ date: date })}
+                  value={this.state.date}
+                  name="date"
+                  calendarStyles={styles}
+                />
               </div>
             </div>
           </div>
@@ -59,6 +94,9 @@ class ShowModal extends Component {
                 <input
                   type="text"
                   className="form-control form-control-md reserve-input"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.onChange}
                 />
               </div>
             </div>
@@ -82,6 +120,9 @@ class ShowModal extends Component {
                 <input
                   type="text"
                   className="form-control form-control-md reserve-input"
+                  name="phone"
+                  value={this.state.phone}
+                  onChange={this.onChange}
                 />
               </div>
             </div>
@@ -121,4 +162,14 @@ const customStyles = {
   }
 };
 
-export default ShowModal;
+const styles = {
+  calendarContainer: "calendarContainer",
+  dayPickerContainer: "dayPickerContainer",
+  monthsList: "monthsList",
+  daysOfWeek: "daysOfWeek",
+  dayWrapper: "dayWrapper",
+  selected: "selected",
+  heading: "heading"
+};
+
+export default withRouter(ShowModal);

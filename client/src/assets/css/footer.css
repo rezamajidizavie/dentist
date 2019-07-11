@@ -1,6 +1,10 @@
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .footer-about {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
   }
+}
+
+.footer {
+  background-color: #1976d2 !important;
 }

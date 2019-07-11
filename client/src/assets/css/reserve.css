@@ -5,12 +5,25 @@
 .reserve-input-label {
   border-radius: 10px 10px 0px 0px;
   justify-content: "center";
-  width: "100%"
+  width: "100%";
 }
 
 .reserve-container {
   box-shadow: 0px 0px 15px -10px rgba(71, 62, 71, 1);
   padding: 20px;
   border-radius: 20px;
-  margin-top: 40px!important;
+  margin-top: 40px !important;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s ease-in-out 300ms, opacity 300ms;
+}
+
+.reserve-container-visible {
+  box-shadow: 0px 0px 15px -10px rgba(71, 62, 71, 1);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 40px !important;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s ease-in-out 0s, opacity 300ms;
 }

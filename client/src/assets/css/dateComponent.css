@@ -1,0 +1,19 @@
+@media screen and (max-width: 500px) {
+  .dateButtons {
+    font-size: 13px;
+  }
+}
+
+.date-box {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0px;
+  transition: visibility 0s ease-in-out 300ms, opacity 300ms, max-height 300ms;
+}
+
+.date-box-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s ease-in-out 0s, opacity 300ms, max-height 300ms;
+  max-height: 100px;
+}

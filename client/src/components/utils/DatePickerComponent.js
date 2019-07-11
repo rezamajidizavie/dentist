@@ -3,12 +3,19 @@ import DatePicker from "./react-persian-datepicker/src/components/DatePicker";
 import "../../assets/css/calender.css";
 
 class DatePickerComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <DatePicker
         style={{ height: "40px" }}
         className="form-control text-center"
         calendarStyles={styles}
+        onChange={this.props.onChange}
+        value={this.props.value}
+        name={this.props.name}
       />
     );
   }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "jalali-moment": "^3.3.1",
     "moment": "^2.24.0",
     "moment-jalali": "^0.3.9",
@@ -11,8 +12,11 @@
     "react-modal": "^3.8.1",
     "react-moment": "^0.8.4",
     "react-persian-datepicker": "^3.0.2",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.2",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
