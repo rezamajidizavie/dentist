@@ -8,6 +8,7 @@ import "../assets/css/reserve.css";
 import DateComponent from "./DateComponent";
 
 import {reserveUser} from "../actions/reserveActions";
+import DatePickerComponent from "./utils/DatePickerComponent";
 
 class Reserve extends Component {
   constructor(props) {
@@ -15,13 +16,20 @@ class Reserve extends Component {
     this.state = {
       name: "",
       phone: "",
-      date: 0,
-      spaces: [],
-      dates: [],
+      date: undefined,
+      spaces: {
+        eightToTen: 0,
+        tenToTwelve: 0,
+        twelveToTwo: 0,
+        twoToFour: 0,
+        fourToSix: 0,
+        sixToEight: 0,
+        noSpace: undefined
+      },
       active: undefined,
       serverResponse: {},
-      fetched: false,
-      reserveClassName: "reserve-container-visible"
+      reserveClassName: "reserve-container-visible",
+      value: undefined
     };
   }
 
@@ -39,87 +47,40 @@ class Reserve extends Component {
         name: this.props.auth.user.name
       });
     }
-    for (let i = 0; i < 5; i++) {
-      this.state.dates[i] =
-        parseInt(
-          moment()
-            .locale("fa")
-            .format("DD")
-        ) + i;
-    }
-
-    axios.get("api/reserve/spaces").then(res => {
-      const spaces = [];
-      spaces[0] = res.data[0].firstDay;
-      spaces[1] = res.data[0].secondDay;
-      spaces[2] = res.data[0].thirdDay;
-      spaces[3] = res.data[0].fourthDay;
-      spaces[4] = res.data[0].fifthDay;
-      this.setState({
-        spaces
-      });
-    });
   }
 
   formSubmit = e => {
     e.preventDefault();
+  };
+
+  onSubmit = hour => {
     const newReserve = {
       name: this.state.name,
       phone: this.state.phone,
-      date: this.state.dates[this.state.active],
-      dateIndex: this.state.active
+      day: moment(this.state.value).format("YYYY/MM/DD"),
+      hour
     };
-    this.props.reserveUser(newReserve);
-
-    axios
-      .post("/api/reserve", newReserve)
-      .then(res => {
-        this.setState({
-          serverResponse: res.data,
-          fetched: true
-        });
-        this.props.history.push("/success");
-      })
-      .catch(err => {
-        console.log(err.response.data);
+    axios.post("/api/reserve", newReserve).then(res => {
+      this.props.history.push({
+        pathname: "/success",
+        state: {detail: res.data}
       });
+    });
   };
 
   onChange = e => {
     this.setState({[e.target.name]: e.target.value});
   };
 
-  handleData = active => {
-    this.setState({
-      active
-    });
-  };
-
-  handleSubmitButton = () => {
-    if (this.state.active === undefined) {
-      return (
-        <input
-          disabled
-          className="btn btn-danger btn-block mt-3"
-          value="لطفا یک روز را انتخاب نمایید"
-        />
-      );
-    } else if (this.state.spaces[this.state.active] === 0) {
-      return (
-        <input
-          disabled
-          className="btn btn-danger btn-block mt-3"
-          value="ظرفیت وجود ندارد"
-        />
-      );
-    } else {
-      return (
-        <input className="btn btn-success w-100" type="submit" value="رزرو" />
-      );
-    }
-  };
-
   render() {
+    const {
+      eightToTen,
+      tenToTwelve,
+      twelveToTwo,
+      twoToFour,
+      fourToSix,
+      sixToEight
+    } = this.state.spaces;
     return (
       <div className="container text-center">
         <div
@@ -157,12 +118,147 @@ class Reserve extends Component {
                     </span>
                   </div>
                   <div style={{width: "100%"}}>
-                    {/* <DatePickerComponent /> */}
-                    <DateComponent handlerFromParant={this.handleData} />
+                    <DatePickerComponent
+                      value={this.state.value}
+                      onChange={value => {
+                        this.setState({
+                          value
+                        });
+                        if (this.state.value) {
+                          axios
+                            .post("/api/reserve/getspace", {
+                              date: moment(this.state.value).format(
+                                "YYYY/MM/DD"
+                              )
+                            })
+                            .then(res => {
+                              if (res.data.length > 0) {
+                                this.setState({
+                                  spaces: res.data[0],
+                                  noSpace: false
+                                });
+                              } else {
+                                this.setState({spaces: {}, noSpace: true});
+                              }
+                            });
+                        }
+                      }}
+                      min={moment().subtract(1, "days")}
+                    />
+                    {/* <DateComponent handlerFromParant={this.handleData} /> */}
                   </div>
                 </div>
               </div>
-              {this.state.serverResponse.success}
+              <div className="border rounded p-2">
+                {this.state.noSpace === true ? (
+                  <div className="alert alert-danger mb-0">
+                    ظرفیتی وجود ندارد.
+                  </div>
+                ) : null}
+                {eightToTen > 0 ? (
+                  <h6 className="mb-0 border d-flex justify-content-center align-items-center">
+                    <strong>تعداد ظرفیت ساعت 08-10:</strong>
+                    <div
+                      className="badge badge-success"
+                      style={{fontSize: "15px"}}
+                    >
+                      {eightToTen}
+                    </div>
+                    <button
+                      className="btn btn-success ml-3"
+                      onClick={this.onSubmit.bind(this, "eightToTen")}
+                    >
+                      رزرو
+                    </button>
+                  </h6>
+                ) : null}
+                {tenToTwelve > 0 ? (
+                  <h6 className="mb-0 border d-flex justify-content-center align-items-center">
+                    <strong>تعداد ظرفیت ساعت 10-12:</strong>
+                    <div
+                      className="badge badge-success"
+                      style={{fontSize: "15px"}}
+                    >
+                      {tenToTwelve}
+                    </div>
+                    <button
+                      className="btn btn-success ml-3"
+                      onClick={this.onSubmit.bind(this, "tenToTwelve")}
+                    >
+                      رزرو
+                    </button>
+                  </h6>
+                ) : null}
+                {twelveToTwo > 0 ? (
+                  <h6 className="mb-0 border d-flex justify-content-center align-items-center">
+                    <strong>تعداد ظرفیت ساعت 12-14:</strong>
+                    <div
+                      className="badge badge-success"
+                      style={{fontSize: "15px"}}
+                    >
+                      {twelveToTwo}
+                    </div>
+                    <button
+                      className="btn btn-success ml-3"
+                      onClick={this.onSubmit.bind(this, "twelveToTwo")}
+                    >
+                      رزرو
+                    </button>
+                  </h6>
+                ) : null}
+                {twoToFour > 0 ? (
+                  <h6 className="mb-0 border d-flex justify-content-center align-items-center">
+                    <strong>تعداد ظرفیت ساعت 14-16:</strong>
+                    <div
+                      className="badge badge-success"
+                      style={{fontSize: "15px"}}
+                    >
+                      {twoToFour}
+                    </div>
+                    <button
+                      className="btn btn-success ml-3"
+                      onClick={this.onSubmit.bind(this, "twoToFour")}
+                    >
+                      رزرو
+                    </button>
+                  </h6>
+                ) : null}
+                {fourToSix > 0 ? (
+                  <h6 className="mb-0 border d-flex justify-content-center align-items-center">
+                    <strong>تعداد ظرفیت ساعت 16-18:</strong>
+                    <div
+                      className="badge badge-success"
+                      style={{fontSize: "15px"}}
+                    >
+                      {fourToSix}
+                    </div>
+                    <button
+                      className="btn btn-success ml-3"
+                      onClick={this.onSubmit.bind(this, "fourToSix")}
+                    >
+                      رزرو
+                    </button>
+                  </h6>
+                ) : null}
+                {sixToEight > 0 ? (
+                  <h6 className="mb-0 border d-flex justify-content-center align-items-center">
+                    <strong>تعداد ظرفیت ساعت 18-20:</strong>
+                    <div
+                      className="badge badge-success"
+                      style={{fontSize: "15px"}}
+                    >
+                      {sixToEight}
+                    </div>
+                    <button
+                      className="btn btn-success ml-3"
+                      onClick={this.onSubmit.bind(this, "sixToEight")}
+                    >
+                      رزرو
+                    </button>
+                  </h6>
+                ) : null}
+              </div>
+
               <div className="form-group">
                 <div className="input-group input-group-sm mt-3">
                   <div className="input-group-prepend" style={{width: "100%"}}>
@@ -216,7 +312,6 @@ class Reserve extends Component {
                   </div>
                 </div>
               </div>
-              {this.handleSubmitButton()}
             </form>
           </div>
         </div>

@@ -45,41 +45,32 @@ router.post(
 );
 
 router.post("/", (req, res) => {
-  const {name, phone, date, dateIndex} = req.body;
+  const {name, phone, day, hour} = req.body;
   const newReserve = new Reserve({
     name,
     phone,
-    date,
-    dateIndex
+    day,
+    hour
   });
-  let dayToPick = "";
-  if (dateIndex == 0) {
-    dayToPick = "firstDay";
-  } else if (dateIndex == 1) {
-    dayToPick = "secondDay";
-  } else if (dateIndex == 2) {
-    dayToPick = "thirdDay";
-  } else if (dateIndex == 3) {
-    dayToPick = "fourthDay";
-  } else if (dateIndex == 4) {
-    dayToPick = "fifthDay";
-  }
 
   newReserve
     .save()
     .then(() => {
       res.json({
-        success: `Reserved successfully for ${date}th by ${name}`,
+        success: `Reserved successfully for ${day} at ${hour} by ${name}`,
         name,
         phone,
-        date,
-        dateIndex
+        day,
+        hour
       });
     })
     .then(() => {
-      Spaces.findByIdAndUpdate("5d21c3e6c448f92990d563c4", {
-        $inc: {[dayToPick]: -1}
-      })
+      Spaces.findOneAndUpdate(
+        {date: day},
+        {
+          $inc: {[hour]: -1}
+        }
+      )
         .then(() => {
           console.log("updated");
         })
@@ -94,20 +85,30 @@ router.post(
   "/spaces",
   passport.authenticate("jwt", {session: false}),
   (req, res) => {
-    const {firstDay, secondDay, thirdDay, fourthDay, fifthDay} = req.body;
-    Spaces.findByIdAndUpdate(
-      "5d21c3e6c448f92990d563c4",
-      {firstDay, secondDay, thirdDay, fourthDay, fifthDay},
-      (err, doc) => {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.status(200).send(doc);
-        }
+    console.log(req.body.space);
+
+    Spaces.findOneAndUpdate(
+      {date: req.body.date},
+      {[req.body.selectedHour]: req.body.space}
+    ).then(doc => {
+      if (!doc) {
+        new Spaces({
+          date: req.body.date,
+          [req.body.selectedHour]: req.body.space
+        })
+          .save()
+          .then(doc => res.json(doc));
+      } else {
+        res.json(doc);
       }
-    );
+    });
   }
 );
+
+router.post("/getspace", (req, res) => {
+  const {date} = req.body;
+  Spaces.find({date}).then(doc => res.json(doc));
+});
 
 router.get("/spaces", (req, res) => {
   Spaces.find().then(items => {

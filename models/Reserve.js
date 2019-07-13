@@ -11,12 +11,13 @@ const ReserveSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Number,
+  day: {
+    type: String,
     required: true
   },
-  dateIndex: {
-    type: Number
+  hour: {
+    type: String,
+    required: true
   }
 });
 

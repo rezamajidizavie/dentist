@@ -21,18 +21,8 @@ export default class ReservesList extends Component {
     });
 
     axios.get("api/reserve/all").then(res => {
-      let results = res.data;
-      for (let i = 0; i < results.length; i++) {
-        for (let j = i + 1; j < results.length; j++) {
-          if (results[i].date > results[j].date) {
-            let temp = results[i];
-            results[i] = results[j];
-            results[j] = temp;
-          }
-        }
-      }
       this.setState({
-        reserves: results
+        reserves: res.data
       });
     });
   }
@@ -72,16 +62,20 @@ export default class ReservesList extends Component {
               }}
               key={index}
             >
-              <p style={{margin: 0}} className="col-3">
+              <p style={{margin: 0}} className="col-2">
                 <span className="badge badge-success">{index + 1} </span>{" "}
                 <strong>نام: </strong>
                 {item.name}{" "}
               </p>
-              <p style={{margin: 0}} className="col-3 text-center">
+              <p style={{margin: 0}} className="col-2 text-center">
                 <strong>تاریخ: </strong>
-                {this.state.month}/{item.date}
+                {item.day}
               </p>
-              <p style={{margin: 0}} className="col-5 text-center">
+              <p style={{margin: 0}} className="col-3 text-center">
+                <strong>ساعت: </strong>
+                {item.hour}
+              </p>
+              <p style={{margin: 0}} className="col-4 text-center">
                 <strong>شماره: </strong>
                 {item.phone}{" "}
               </p>

@@ -3,25 +3,33 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const SpacesSchema = new Schema({
-  firstDay: {
-    type: Number,
+  date: {
+    type: String,
     required: true
   },
-  secondDay: {
+  eightToTen: {
     type: Number,
-    required: true
+    default: 0
   },
-  thirdDay: {
+  tenToTwelve: {
     type: Number,
-    required: true
+    default: 0
   },
-  fourthDay: {
+  twelveToTwo: {
     type: Number,
-    required: true
+    default: 0
   },
-  fifthDay: {
+  twoToFour: {
     type: Number,
-    required: true
+    default: 0
+  },
+  fourToSix: {
+    type: Number,
+    default: 0
+  },
+  sixToEight: {
+    type: Number,
+    default: 0
   }
 });
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import moment from "moment-jalali";
 import TetherComponent from "react-tether";
@@ -40,7 +40,7 @@ export default class DatePicker extends Component {
   };
 
   setOpen(isOpen) {
-    this.setState({ isOpen });
+    this.setState({isOpen});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +50,7 @@ export default class DatePicker extends Component {
   }
 
   setMomentValue(momentValue) {
-    const { inputFormat } = this.props;
+    const {inputFormat} = this.props;
 
     if (this.props.onChange) {
       this.props.onChange(momentValue);
@@ -58,7 +58,7 @@ export default class DatePicker extends Component {
 
     let inputValue = "";
     if (momentValue) inputValue = momentValue.format(inputFormat);
-    this.setState({ momentValue, inputValue });
+    this.setState({momentValue, inputValue});
   }
 
   handleFocus() {
@@ -66,8 +66,8 @@ export default class DatePicker extends Component {
   }
 
   handleBlur(event) {
-    const { onBlur, inputFormat } = this.props;
-    const { isOpen, momentValue } = this.state;
+    const {onBlur, inputFormat} = this.props;
+    const {isOpen, momentValue} = this.state;
 
     if (isOpen) {
       this.refs.input.focus();
@@ -77,7 +77,7 @@ export default class DatePicker extends Component {
 
     if (momentValue) {
       const inputValue = momentValue.format(inputFormat);
-      this.setState({ inputValue });
+      this.setState({inputValue});
     }
   }
 
@@ -86,7 +86,7 @@ export default class DatePicker extends Component {
   }
 
   handleSelectDay(selectedDay) {
-    const { momentValue: oldValue } = this.state;
+    const {momentValue: oldValue} = this.state;
     let momentValue = selectedDay.clone();
 
     if (oldValue) {
@@ -102,15 +102,15 @@ export default class DatePicker extends Component {
   }
 
   handleInputChange(event) {
-    const { inputFormat } = this.props;
+    const {inputFormat} = this.props;
     const inputValue = event.target.value;
     const momentValue = moment(inputValue, inputFormat);
 
     if (momentValue.isValid()) {
-      this.setState({ momentValue });
+      this.setState({momentValue});
     }
 
-    this.setState({ inputValue });
+    this.setState({inputValue});
   }
 
   handleInputClick() {
@@ -120,7 +120,7 @@ export default class DatePicker extends Component {
   }
 
   renderInput() {
-    let { isOpen, inputValue } = this.state;
+    let {isOpen, inputValue} = this.state;
 
     if (this.props.value) {
       let value = this.props.value;
@@ -145,14 +145,14 @@ export default class DatePicker extends Component {
           value={inputValue}
           readOnly="true"
           placeholder="برای انتخاب تاریخ کلیک یا لمس کنید"
-          style={{ backgroundColor: "white" }}
+          style={{backgroundColor: "white"}}
         />
       </div>
     );
   }
 
   renderCalendar() {
-    const { momentValue } = this.state;
+    const {momentValue} = this.state;
     const {
       timePickerComponent: TimePicker,
       onChange,
@@ -190,7 +190,7 @@ export default class DatePicker extends Component {
   }
 
   removeDate() {
-    const { onChange } = this.props;
+    const {onChange} = this.props;
     if (onChange) {
       onChange("");
     }
@@ -201,7 +201,7 @@ export default class DatePicker extends Component {
   }
 
   render() {
-    const { isOpen } = this.state;
+    const {isOpen} = this.state;
 
     return (
       <TetherComponent attachment="top center">
