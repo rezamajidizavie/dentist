@@ -46,19 +46,10 @@ class Navbar extends Component {
                   داشبورد
                 </Link>
               </li>
-              <li data-toggle="collapse" data-target=".navbar-collapse.show">
-                <Link className="dropdown-item" to="/admin">
-                  تعیین ظرفیت
-                </Link>
-              </li>
-              <li data-toggle="collapse" data-target=".navbar-collapse.show">
-                <Link className="dropdown-item" to="/reservelist">
-                  لیست رزرو ها
-                </Link>
-              </li>
+
               <li data-toggle="collapse" data-target=".navbar-collapse.show">
                 <Link
-                  href="#"
+                  to=""
                   onClick={this.onLogoutClick.bind(this)}
                   className="dropdown-item"
                 >
@@ -98,7 +89,7 @@ class Navbar extends Component {
               </li>
               <li data-toggle="collapse" data-target=".navbar-collapse.show">
                 <Link
-                  href="#"
+                  to=""
                   onClick={this.onLogoutClick.bind(this)}
                   className="dropdown-item"
                 >
@@ -159,7 +150,7 @@ class Navbar extends Component {
               className="tooth-logo rounded-circle"
               alt="tooth-logo"
             />
-            دندانک
+            زیبادندان
           </Link>
         </div>
 

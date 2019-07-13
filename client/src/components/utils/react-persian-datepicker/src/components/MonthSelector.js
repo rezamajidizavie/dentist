@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import moment from "moment-jalali";
 import classnames from "classnames";
 import MonthsViewHeading from "./MonthsViewHeading";
-import { persianNumber } from "../utils/persian";
-import { leftArrow, rightArrow } from "../utils/assets";
+// import { persianNumber } from "../utils/persian";
+// import { leftArrow, rightArrow } from "../utils/assets";
 
 // List of months
 const months = [
@@ -50,14 +50,14 @@ export default class MonthSelector extends Component {
   }
 
   handleClick(key) {
-    const { setMonth, setCalendarMode } = this.context;
+    const {setMonth, setCalendarMode} = this.context;
     setMonth(moment(key, "jM-jYYYY"));
     setCalendarMode("days");
   }
 
   render() {
-    const { year } = this.state;
-    const { selectedMonth, styles } = this.props;
+    const {year} = this.state;
+    const {selectedMonth, styles} = this.props;
 
     return (
       <div className="month-selector">

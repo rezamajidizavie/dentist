@@ -8,6 +8,10 @@ const jwt = require("jsonwebtoken");
 
 const keys = require("../../config/keys");
 
+// Load input validation
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
+
 // Load reserve model
 const Reserve = require("../../models/Reserve");
 const Spaces = require("../../models/Spaces");
@@ -134,13 +138,20 @@ router.post("/register", (req, res) => {
 
 // Login
 router.post("/admin", (req, res) => {
+  const {errors, isValid} = validateLoginInput(req.body);
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   const {email, password} = req.body;
 
   //find user by email
   User.findOne({email}).then(user => {
     //check for user
     if (!user) {
-      return res.status(400).json({email: "email not found"});
+      errors.email = "کاربر یافت نشد";
+      return res.status(400).json(errors);
     }
     //check password
     bcrypt.compare(password, user.password).then(isMatch => {
@@ -153,7 +164,8 @@ router.post("/admin", (req, res) => {
           res.json({success: true, token: "Bearer " + token});
         });
       } else {
-        return res.status(400).json({error: "رمز عبور نادرست می باشد"});
+        errors.password = "رمز عبور نادرست می باشد";
+        return res.status(400).json(errors);
       }
     });
   });

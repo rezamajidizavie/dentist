@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Modal from "react-modal";
 import * as moment from "jalali-moment";
 import DatePicker from "../utils/react-persian-datepicker/src/components/DatePicker";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 class ShowModal extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ class ShowModal extends Component {
   }
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({[e.target.name]: e.target.value});
   };
 
   onSubmit = e => {
@@ -50,7 +50,7 @@ class ShowModal extends Component {
         <form className="form" onSubmit={this.onSubmit}>
           <div className="form-group">
             <div className="input-group input-group-sm">
-              <div className="input-group-prepend" style={{ width: "100%" }}>
+              <div className="input-group-prepend" style={{width: "100%"}}>
                 <span
                   className="input-group-text"
                   id="inputGroup-sizing-sm"
@@ -63,11 +63,11 @@ class ShowModal extends Component {
                   تاریخ
                 </span>
               </div>
-              <div style={{ width: "100%" }}>
+              <div style={{width: "100%"}}>
                 <DatePicker
-                  style={{ height: "40px" }}
+                  style={{height: "40px"}}
                   className="form-control text-center"
-                  onChange={date => this.setState({ date: date })}
+                  onChange={date => this.setState({date: date})}
                   value={this.state.date}
                   name="date"
                   calendarStyles={styles}
@@ -77,7 +77,7 @@ class ShowModal extends Component {
           </div>
           <div className="form-group">
             <div className="input-group input-group-sm mt-3">
-              <div className="input-group-prepend" style={{ width: "100%" }}>
+              <div className="input-group-prepend" style={{width: "100%"}}>
                 <span
                   className="input-group-text reserve-input-label"
                   id="inputGroup-sizing-sm"
@@ -90,7 +90,7 @@ class ShowModal extends Component {
                   نام
                 </span>
               </div>
-              <div style={{ width: "100%" }}>
+              <div style={{width: "100%"}}>
                 <input
                   type="text"
                   className="form-control form-control-md reserve-input"
@@ -103,7 +103,7 @@ class ShowModal extends Component {
           </div>
           <div className="form-group">
             <div className="input-group input-group-sm mt-3">
-              <div className="input-group-prepend" style={{ width: "100%" }}>
+              <div className="input-group-prepend" style={{width: "100%"}}>
                 <span
                   className="input-group-text reserve-input-label"
                   id="inputGroup-sizing-sm"
@@ -116,7 +116,7 @@ class ShowModal extends Component {
                   شماره تماس
                 </span>
               </div>
-              <div style={{ width: "100%" }}>
+              <div style={{width: "100%"}}>
                 <input
                   type="text"
                   className="form-control form-control-md reserve-input"

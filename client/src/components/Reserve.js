@@ -28,7 +28,7 @@ class Reserve extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.setState({
-        name: this.props.auth.user.email
+        name: this.props.auth.user.name
       });
     }
   }
@@ -120,8 +120,6 @@ class Reserve extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     return (
       <div className="container text-center">
         <div

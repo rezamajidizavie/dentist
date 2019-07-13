@@ -16,8 +16,6 @@ class NotAuthorized extends Component {
   }
 
   render() {
-    console.log(this.props.auth);
-
     return (
       <div className="container reserve-container-visible text-center">
         <div className="col-md-8 text-center m-auto">

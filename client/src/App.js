@@ -7,7 +7,6 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Reserve from "./components/Reserve";
 import * as moment from "jalali-moment";
 import Success from "./components/Success";
-import Admin from "./components/Admin";
 
 import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -18,12 +17,10 @@ import {setCurrentUser, logoutUser} from "./actions/authActions";
 import {Provider} from "react-redux";
 import store from "./store";
 import Login from "./components/Login";
-import ReservesList from "./components/ReservesList";
 import Dashboard from "./components/Dashboard";
 import NotAuthorized from "./components/NotAuthorized";
 import Article from "./components/landing/Article";
 import Register from "./components/Register";
-import PrivateRouteForNormalUsers from "./components/common/PrivateRouteForNormalUsers";
 
 // check for token
 if (localStorage.jwtToken) {
@@ -63,21 +60,6 @@ class App extends Component {
 
             <Route exact path="/not-authorized" component={NotAuthorized} />
             <Route exact path="/article" component={Article} />
-
-            <Switch>
-              <PrivateRouteForNormalUsers
-                exact
-                path="/admin"
-                component={Admin}
-              />
-            </Switch>
-            <Switch>
-              <PrivateRouteForNormalUsers
-                exact
-                path="/reservelist"
-                component={ReservesList}
-              />
-            </Switch>
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

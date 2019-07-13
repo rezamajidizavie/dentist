@@ -52,7 +52,7 @@ export default class Admin extends Component {
   render() {
     if (this.state.spaceResponse) {
       return (
-        <div className="container text-center">
+        <div className="text-center">
           <img
             src={greenCheck}
             alt="green-check"
@@ -66,7 +66,7 @@ export default class Admin extends Component {
       );
     } else {
       return (
-        <div className="container border col-md-8 col-lg-6 mt-4 p-0 text-center rounded">
+        <div className="border rounded">
           <form onSubmit={this.onTableSubmit}>
             <table className="table">
               <thead>

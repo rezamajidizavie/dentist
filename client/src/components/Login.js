@@ -8,7 +8,8 @@ class Login extends Component {
     super();
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -37,6 +38,9 @@ class Login extends Component {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
+    if (nextProps.errors) {
+      this.setState({errors: nextProps.errors});
+    }
   }
 
   render() {
@@ -61,13 +65,17 @@ class Login extends Component {
               </div>
               <div style={{width: "100%"}}>
                 <input
-                  required
                   name="email"
                   onChange={this.onChange}
                   type="text"
                   className="form-control form-control-md reserve-input"
                 />
               </div>
+              {this.state.errors.email ? (
+                <p className="invalid-feedback d-block text-center mb-0">
+                  {this.state.errors.email}
+                </p>
+              ) : null}
             </div>
           </div>
           <div className="form-group">
@@ -87,12 +95,16 @@ class Login extends Component {
               </div>
               <div style={{width: "100%"}}>
                 <input
-                  required
                   type="password"
                   name="password"
                   className="form-control form-control-md reserve-input"
                   onChange={this.onChange}
                 />
+                {this.state.errors.password ? (
+                  <p className="invalid-feedback d-block text-center mb-0">
+                    {this.state.errors.password}
+                  </p>
+                ) : null}
               </div>
             </div>
           </div>
@@ -109,7 +121,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    errors: state.errors
   };
 };
 

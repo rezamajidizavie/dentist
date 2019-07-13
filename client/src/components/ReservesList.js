@@ -60,9 +60,8 @@ export default class ReservesList extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1 className="text-center mt-3 mb-3">لیست رزرو ها</h1>
-        <div className="col-sm-12 col-md-11 col-lg-8 m-auto">
+      <div>
+        <div>
           {this.state.reserves.map((item, index) => (
             <div
               className="border rounded p-3 m-2 list-wrapper shadow"
