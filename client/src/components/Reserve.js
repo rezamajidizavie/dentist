@@ -25,7 +25,20 @@ class Reserve extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.setState({
+        name: this.props.auth.user.email
+      });
+    }
+  }
+
   componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.setState({
+        name: this.props.auth.user.name
+      });
+    }
     for (let i = 0; i < 5; i++) {
       this.state.dates[i] =
         parseInt(
@@ -107,6 +120,8 @@ class Reserve extends Component {
   };
 
   render() {
+    console.log(this.state);
+
     return (
       <div className="container text-center">
         <div
@@ -171,7 +186,8 @@ class Reserve extends Component {
                       name="name"
                       onChange={this.onChange}
                       type="text"
-                      className="form-control form-control-md reserve-input"
+                      className="form-control form-control-md reserve-input text-center"
+                      value={this.state.name}
                     />
                   </div>
                 </div>
@@ -196,7 +212,7 @@ class Reserve extends Component {
                       required
                       type="text"
                       name="phone"
-                      className="form-control form-control-md reserve-input"
+                      className="form-control form-control-md reserve-input text-center"
                       onChange={this.onChange}
                     />
                   </div>
@@ -213,7 +229,8 @@ class Reserve extends Component {
 
 const mapStateToProps = state => {
   return {
-    reserve: state.reserve
+    reserve: state.reserve,
+    auth: state.auth
   };
 };
 

@@ -20,6 +20,10 @@ import store from "./store";
 import Login from "./components/Login";
 import ReservesList from "./components/ReservesList";
 import Dashboard from "./components/Dashboard";
+import NotAuthorized from "./components/NotAuthorized";
+import Article from "./components/landing/Article";
+import Register from "./components/Register";
+import PrivateRouteForNormalUsers from "./components/common/PrivateRouteForNormalUsers";
 
 // check for token
 if (localStorage.jwtToken) {
@@ -55,18 +59,28 @@ class App extends Component {
             <Route exact path="/reserve" component={Reserve} />
             <Route exact path="/success" component={Success} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+
+            <Route exact path="/not-authorized" component={NotAuthorized} />
+            <Route exact path="/article" component={Article} />
+
             <Switch>
-              <PrivateRoute exact path="/admin" component={Admin} />
+              <PrivateRouteForNormalUsers
+                exact
+                path="/admin"
+                component={Admin}
+              />
             </Switch>
             <Switch>
-              <PrivateRoute
+              <PrivateRouteForNormalUsers
                 exact
                 path="/reservelist"
                 component={ReservesList}
               />
             </Switch>
-            <Route exact path="/dashboard" component={Dashboard} />
-
+            <Switch>
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
             <Footer />
           </div>
         </Router>

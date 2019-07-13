@@ -16,46 +16,121 @@ class Navbar extends Component {
   render() {
     const {isAuthenticated, user} = this.props.auth;
 
-    const authLinks = (
-      <ul
-        className=" auth-links navbar-nav ml-auto"
-        style={{display: "flex", flexDirection: "row", alignItems: "center"}}
-      >
-        <li className="nav-item mr-2">
-          <Link style={{color: "white"}} className="nav-link" to="/dashboard">
-            داشبورد
-          </Link>
-        </li>
-        <li className="nav-item mr-2">
-          <Link style={{color: "white"}} className="nav-link" to="/admin">
-            تعیین ظرفیت ها
-          </Link>
-        </li>
-        <li className="nav-item mr-2">
-          <Link style={{color: "white"}} className="nav-link" to="/reservelist">
-            لیست رزرو ها
-          </Link>
-        </li>
-        <li className="nav-item mr-2">
-          <a
-            href="#"
-            onClick={this.onLogoutClick.bind(this)}
-            className="nav-link auth-links"
-          >
-            خروج
-          </a>
-        </li>
-      </ul>
-    );
+    const authLinks =
+      user.email === "m.m.zavie@gmail.com" ? (
+        <ul
+          className=" auth-links navbar-nav ml-auto"
+          style={{display: "flex", flexDirection: "row", alignItems: "center"}}
+        >
+          <p className="text-white mr-4 mb-0"> خوش آمدید {user.name} </p>
+
+          <div class="dropdown">
+            <button
+              class="btn btn-info dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style={{marginLeft: 30}}
+            >
+              ناحیه کاربری
+            </button>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButton"
+              style={{position: "absolute"}}
+            >
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link className="dropdown-item" to="/dashboard">
+                  داشبورد
+                </Link>
+              </li>
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link className="dropdown-item" to="/admin">
+                  تعیین ظرفیت
+                </Link>
+              </li>
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link className="dropdown-item" to="/reservelist">
+                  لیست رزرو ها
+                </Link>
+              </li>
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link
+                  href="#"
+                  onClick={this.onLogoutClick.bind(this)}
+                  className="dropdown-item"
+                >
+                  خروج
+                </Link>
+              </li>
+            </div>
+          </div>
+        </ul>
+      ) : (
+        <ul
+          className=" auth-links navbar-nav ml-auto"
+          style={{display: "flex", flexDirection: "row", alignItems: "center"}}
+        >
+          <p className="text-white mr-4 mb-0"> خوش آمدید {user.name} </p>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style={{marginLeft: 36}}
+            >
+              ناحیه کاربری
+            </button>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButton"
+              style={{position: "absolute"}}
+            >
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link className="dropdown-item" to="/dashboard">
+                  داشبورد
+                </Link>
+              </li>
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link
+                  href="#"
+                  onClick={this.onLogoutClick.bind(this)}
+                  className="dropdown-item"
+                >
+                  خروج
+                </Link>
+              </li>
+            </div>
+          </div>
+        </ul>
+      );
 
     const guestLinks = (
       <ul
         className=" auth-links navbar-nav ml-auto"
         style={{display: "flex", flexDirection: "row", alignItems: "center"}}
       >
-        <li className="nav-item mr-3">
+        <li
+          className="nav-item mr-3"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
           <Link style={{color: "white"}} className="nav-link" to="/login">
             ورود
+          </Link>
+        </li>
+        <li
+          className="nav-item mr-3"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
+          <Link style={{color: "white"}} className="nav-link" to="/register">
+            ثبت نام
           </Link>
         </li>
       </ul>

@@ -29,7 +29,7 @@
 }
 
 /* bootstrap navbar breakpoint changing */
-@media (min-width: 600px) {
+@media (min-width: 890px) {
   .navbar-expand-custom {
     flex-direction: row;
     flex-wrap: nowrap;

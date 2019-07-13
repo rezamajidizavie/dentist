@@ -112,24 +112,25 @@ router.get("/spaces", (req, res) => {
 });
 
 // Register
-// router.post("/admin", (req, res) => {
-//   const {email, password} = req.body;
-//   const newUser = new User({
-//     email,
-//     password
-//   });
+router.post("/register", (req, res) => {
+  const {name, email, password} = req.body;
+  const newUser = new User({
+    name,
+    email,
+    password
+  });
 
-//   bcrypt.genSalt(10, (err, salt) => {
-//     bcrypt.hash(newUser.password, salt, (err, hash) => {
-//       if (err) throw err;
-//       newUser.password = hash;
-//       newUser
-//         .save()
-//         .then(user => res.json(user))
-//         .catch(err => console.log(err));
-//     });
-//   });
-// });
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+      if (err) throw err;
+      newUser.password = hash;
+      newUser
+        .save()
+        .then(user => res.json(user))
+        .catch(err => console.log(err));
+    });
+  });
+});
 
 // Login
 router.post("/admin", (req, res) => {
@@ -145,7 +146,7 @@ router.post("/admin", (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         //User matched
-        const payload = {email: user.email, id: user.id}; // create jwt payload
+        const payload = {email: user.email, id: user.id, name: user.name}; // create jwt payload
 
         // sign token
         jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => {
